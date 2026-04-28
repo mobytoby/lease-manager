@@ -99,6 +99,8 @@ Roughly in order of value:
 
 **Tests** for the generator scripts.
 
+**Prose extraction.** Section 2 (Additional Terms) and the static addenda (Parking, Rules, Mold, Fire Safety) are stable boilerplate with no variables. Currently embedded as Python f-strings; could be extracted into plain `.txt` template files loaded at render time so legal language is editable without touching Python. Section 1 (Basic Terms) is conditional enough that it should stay in Python. Not urgent until the prose actually needs editing.
+
 **Deferred:**
 - Multi-landlord / multi-state support.
 - Versioning of generated documents.
