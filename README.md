@@ -15,16 +15,17 @@ data/
 └── tenancies/<id>.json
 ```
 
-These files are gitignored (they contain real names, addresses, and financial terms). Anonymized samples are provided to get you started:
+These files are gitignored (they contain real names, addresses, and financial terms). The app has built-in forms for creating and editing all three profile types — the fastest path is:
 
-```bash
-# Bootstrap with sample data
-cp data/samples/landlord.json data/landlord.json
-cp data/samples/properties/sample_property.json data/properties/my_property.json
-cp data/samples/tenancies/sample_tenancy.json data/tenancies/my_tenancy.json
-```
+1. Copy the sample landlord profile as a starting point, then edit it in the UI:
+   ```bash
+   cp data/samples/landlord.json data/landlord.json
+   ```
+2. Run the app (`streamlit run app.py`) and open **Landlord Profile** in the sidebar to fill in your details.
+3. Open **Properties** to add your rental property (or copy a sample and edit it there).
+4. You're ready — start a new lease from the **New Lease** wizard.
 
-Edit each file with your real information, then run the app. See the **Data model** section below for field-by-field documentation.
+Alternatively, skip the copy step entirely and fill everything in from scratch using the UI forms. See the **Data model** section below for field-by-field documentation.
 
 ## Quick start
 
