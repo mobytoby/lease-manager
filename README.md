@@ -29,22 +29,39 @@ Alternatively, skip the copy step entirely and fill everything in from scratch u
 
 ## Quick start
 
-**With uv (recommended):**
+**1. Install LibreOffice** (used for DOCX → PDF conversion):
+
+```bash
+brew install --cask libreoffice   # macOS
+# or download from https://www.libreoffice.org/download/
+```
+
+Without LibreOffice the app still works — it generates DOCX files and offers them as downloads, but skips PDF conversion.
+
+**2. Install Python dependencies:**
+
+With uv (recommended):
 
 ```bash
 uv venv && uv pip install -r requirements.txt
-uv run streamlit run app.py
 ```
 
 Install uv once with `curl -LsSf https://astral.sh/uv/install.sh | sh` (or `brew install uv`).
 
-**With standard venv:**
+With standard venv:
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py
 ```
+
+**3. Run:**
+
+```bash
+uv run streamlit run app.py   # uv
+streamlit run app.py          # venv (after activating)
+```
+
 
 A browser tab opens with the wizard. Walk through five steps (Property, Tenants, Money, Addenda, Review) and click Generate. Output lands in `output/`.
 
