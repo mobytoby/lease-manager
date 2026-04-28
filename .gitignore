@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Data files (real landlord/property/tenancy data)
+data/landlord.json
+data/properties/
+data/tenancies/
+
+# Generated renders and scratch files
+output/
+
+# macOS
+.DS_Store
+
+# LibreOffice lock files
+.~lock.*
+
+# Claude Code local settings
+.claude/settings.local.json

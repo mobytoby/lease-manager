@@ -1,0 +1,77 @@
+{
+  "id": "sample_tenancy",
+  "property_id": "sample_property",
+  "lease_kind": "new",
+  "prior_lease_effective_date": null,
+  "effective_date": "2026-06-01",
+  "term": {
+    "type": "fixed",
+    "start_date": "2026-06-01",
+    "end_date": "2027-05-31"
+  },
+  "tenants": [
+    {
+      "name": "Alex Johnson",
+      "address_for_notice_pre_start": "789 Prior St, Spokane, WA 99201",
+      "phone": "(509) 555-0200",
+      "email": "alex.johnson@example.com"
+    },
+    {
+      "name": "Casey Johnson",
+      "address_for_notice_pre_start": "789 Prior St, Spokane, WA 99201",
+      "phone": "(509) 555-0201",
+      "email": "casey.johnson@example.com"
+    }
+  ],
+  "additional_occupants": [],
+  "rent": {
+    "monthly_rent": 1800.0,
+    "first_rent_due": "first_due_date_after_start",
+    "prorated_first_month": 0.0,
+    "monthly_rent_due_day": 1,
+    "grace_period_days": 5,
+    "late_fee": 200.0,
+    "nsf_fee": "variable"
+  },
+  "security_deposit": {
+    "amount": 1800.0,
+    "already_held": false,
+    "additional_due_at_signing": 1800.0
+  },
+  "rental_insurance": {
+    "required": false,
+    "minimum_coverage": null
+  },
+  "utilities_overrides": {
+    "_comment": "If empty, the property profile defaults are used. Per-tenancy overrides go here."
+  },
+  "addenda": {
+    "pets": {
+      "include": false,
+      "pets": [],
+      "pet_rent_monthly": 0.0,
+      "non_refundable_pet_fee": 0.0,
+      "refundable_pet_deposit": 0.0,
+      "insurance_required": false
+    },
+    "parking": {
+      "include": true
+    },
+    "lawn_care": {
+      "include": true
+    },
+    "rules": {
+      "include": true,
+      "custom_rules": []
+    },
+    "mold_disclosure": {
+      "include": true
+    },
+    "lead_paint_disclosure": {
+      "include": false
+    },
+    "fire_safety": {
+      "include": true
+    }
+  }
+}

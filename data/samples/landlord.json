@@ -1,0 +1,44 @@
+{
+  "name": "Jane Smith",
+  "address": {
+    "street": "100 Main St",
+    "unit": "Apt #100",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": "98101"
+  },
+  "phone": "2065550100",
+  "phone_for_tenants": "(206) 555-0100",
+  "email": "landlord@example.com",
+  "security_deposit_bank": {
+    "name": "Example Bank",
+    "address": "200 Bank Ave, Anytown, WA 98000"
+  },
+  "payment_methods": {
+    "check_or_money_order": {
+      "enabled": true,
+      "payable_to": "Jane Smith",
+      "mail_to": {
+        "street": "100 Main St",
+        "unit": "Apt #100",
+        "city": "Seattle",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "electronic": [
+      {
+        "service": "Stessa rent collection",
+        "notes": "Landlord will provide Tenant with account information."
+      }
+    ]
+  },
+  "defaults": {
+    "late_fee": 200.0,
+    "grace_period_days": 5,
+    "smoking_violation_fee": 250.0,
+    "variable_charge_payment_window_days": 15,
+    "monthly_rent_due_day": 1,
+    "month_to_month_tenant_notice_days": 20
+  }
+}

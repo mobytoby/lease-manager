@@ -1,0 +1,127 @@
+{
+  "id": "sample_property",
+  "address": {
+    "street": "456 Elm St",
+    "city": "Spokane",
+    "state": "WA",
+    "zip": "99201"
+  },
+  "jurisdiction": "city",
+  "property_type": "single-family residence",
+  "year_built": 1950,
+  "lead_paint_disclosure_required": false,
+  "appliances": [
+    {
+      "name": "Refrigerator"
+    },
+    {
+      "name": "Oven/range"
+    },
+    {
+      "name": "Microwave"
+    },
+    {
+      "name": "Dishwasher"
+    },
+    {
+      "name": "Clothes washer"
+    },
+    {
+      "name": "Clothes dryer"
+    }
+  ],
+  "utilities": {
+    "electricity": {
+      "provider": "Sample Electric Co.",
+      "paid_by": "tenant",
+      "included_in_rent": false
+    },
+    "natural_gas": {
+      "provider": "Sample Gas Co.",
+      "paid_by": "tenant",
+      "included_in_rent": false
+    },
+    "water_source": {
+      "type": "city",
+      "provider": "City of Spokane"
+    },
+    "sewer": {
+      "type": "city",
+      "provider": "City of Spokane"
+    },
+    "water_sewer": {
+      "provider": "City of Spokane",
+      "paid_by": "landlord",
+      "included_in_rent": true
+    },
+    "trash": {
+      "provider": "City of Spokane Solid Waste",
+      "paid_by": "landlord",
+      "included_in_rent": true,
+      "pickup_day": "Monday",
+      "calendar_url": null,
+      "calendar_url_note": null,
+      "calendar_pdf_path": null,
+      "calendar_last_refreshed": null,
+      "notes": null
+    },
+    "heating": {
+      "type": "natural_gas",
+      "thermostat": {
+        "brand": "Honeywell",
+        "notes": null
+      }
+    },
+    "snow_removal": {
+      "provided_by": "tenant"
+    },
+    "landscaping": {
+      "provided_by": "tenant",
+      "tenant_addendum_required": true
+    },
+    "telephone": {
+      "setup": "tenant"
+    },
+    "cable_tv": {
+      "setup": "tenant"
+    },
+    "internet": {
+      "setup": "tenant"
+    }
+  },
+  "storage": {
+    "available": false,
+    "location": null,
+    "included_in_rent": false,
+    "monthly_fee": 0.0
+  },
+  "parking": {
+    "available": true,
+    "type": "designated",
+    "included_in_rent": true,
+    "monthly_fee": 0.0
+  },
+  "smoke_detectors": {
+    "installed": true,
+    "battery_operated": true
+  },
+  "co_detectors": {
+    "installed": true
+  },
+  "fire_alarm_system": false,
+  "furnace_filter": {
+    "location": "Basement, next to the furnace",
+    "instructions": "Change as needed. Spare filters stored on-site."
+  },
+  "rooms_for_condition_report": [
+    "Grounds",
+    "Entry / Hall",
+    "Living Room",
+    "Kitchen",
+    "Bathroom 1",
+    "Bedroom 1",
+    "Bedroom 2",
+    "Basement",
+    "Exterior"
+  ]
+}
