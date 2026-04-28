@@ -120,8 +120,8 @@ Either option keeps pypdf for the pamphlet-stitching step. The data model and JS
 
 ```bash
 cd /path/to/lease-wizard
-pip install -r requirements.txt
-streamlit run app.py
+uv venv && uv pip install -r requirements.txt
+uv run streamlit run app.py
 ```
 
 Streamlit opens a browser tab. Walk through the five steps; click Generate on the Review step. Files land in `output/`.

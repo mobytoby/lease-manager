@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+.venv/
 
 # Data files (real landlord/property/tenancy data)
 data/landlord.json
