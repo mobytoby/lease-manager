@@ -220,6 +220,9 @@ def build_context(landlord, property_, tenancy):
             )
         return f"Tenant will arrange and pay for the cost of {name}."
 
+    # DocuSign signer numbering: tenants 1..N, landlord N+1.
+    landlord_signer_num = len(tenant_names) + 1
+
     return {
         "landlord": landlord,
         "property": property_,
@@ -231,6 +234,7 @@ def build_context(landlord, property_, tenancy):
         "addenda": tenancy["addenda"],
         "is_renewal": tenancy.get("lease_kind") == "renewal",
         "term_is_fixed": tenancy["term"]["type"] == "fixed",
+        "landlord_signer_num": landlord_signer_num,
     }
 
 
@@ -1193,8 +1197,8 @@ def write_main_signature(doc, ctx):
         "IN WITNESS WHEREOF, Tenant and Landlord have executed this Lease as of "
         "the date of the last signature below.",
     )
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 # ---------------------------------------------------------------------------
@@ -1270,8 +1274,8 @@ def write_pet_addendum(doc, ctx):
     numbered_list(doc, rules)
 
     add_para(doc, "The violation of any provision of this Pet Addendum will constitute a Default under the Lease.")
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_parking_addendum(doc, ctx):
@@ -1306,8 +1310,8 @@ def write_parking_addendum(doc, ctx):
     ]
     numbered_list(doc, rules)
     add_para(doc, "The violation of any provision of this Parking Addendum will constitute a Default under the Lease.")
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_rules_addendum(doc, ctx):
@@ -1351,8 +1355,8 @@ def write_rules_addendum(doc, ctx):
         numbered_list(doc, custom)
 
     add_para(doc, "The violation of any provision of this Rules Addendum will constitute a Default under the Lease.")
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_lawn_care_addendum(doc, ctx):
@@ -1423,8 +1427,8 @@ def write_lawn_care_addendum(doc, ctx):
     ])
 
     add_para(doc, "The violation of any provision of this Tenant Yard Care Addendum will constitute a Default under the Lease.")
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_lead_paint_disclosure(doc, ctx):
@@ -1451,8 +1455,8 @@ def write_lead_paint_disclosure(doc, ctx):
         "Protect Your Family from Lead in Your Home, a copy of which is attached "
         "to this Lease.",
     )
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_mold_addendum(doc, ctx):
@@ -1464,8 +1468,8 @@ def write_mold_addendum(doc, ctx):
         "\"A Brief Guide to Mold, Moisture, and Your Home,\" a copy of which is "
         "attached to this Lease.",
     )
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def write_fire_safety_addendum(doc, ctx):
@@ -1507,8 +1511,8 @@ def write_fire_safety_addendum(doc, ctx):
         add_para(doc, line)
     if not ctx["property"].get("fire_alarm_system"):
         add_para(doc, "The Property does not have a fire alarm system.")
-    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]])
-    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]])
+    add_signature_block(doc, "Tenant", [t["name"] for t in ctx["tenancy"]["tenants"]], signer_start=1)
+    add_signature_block(doc, "Landlord", [ctx["landlord"]["name"]], signer_start=ctx["landlord_signer_num"])
 
 
 def ordinal(n):

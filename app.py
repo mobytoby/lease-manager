@@ -39,12 +39,9 @@ OUTPUT_DIR = ROOT / "output"
 # ---------------------------------------------------------------------------
 
 def init_session():
-    if "initialized" in st.session_state:
-        return
-    st.session_state.initialized = True
-    st.session_state.step = 1
-    st.session_state.tenancy = empty_tenancy()
-    st.session_state.last_generated = None
+    st.session_state.setdefault("step", 1)
+    st.session_state.setdefault("tenancy", empty_tenancy())
+    st.session_state.setdefault("last_generated", None)
 
 
 def empty_tenancy():
@@ -1311,7 +1308,6 @@ def main():
         if st.sidebar.button("Reset wizard"):
             for k in ["step", "tenancy", "last_generated"]:
                 st.session_state.pop(k, None)
-            init_session()
             st.rerun()
 
         _, render_fn = STEPS[st.session_state.step - 1]
